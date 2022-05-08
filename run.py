@@ -13,8 +13,8 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('wired_coffee_branch_orders')
 
-sales = SHEET.worksheet('orders')
+orders = SHEET.worksheet('orders')
 
-data = sales.get_all_values()
+data = orders.get_all_values()
 
 print(data)
