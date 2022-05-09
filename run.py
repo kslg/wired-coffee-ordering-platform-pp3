@@ -28,7 +28,7 @@ def get_order_data():
     print("==============================\n")
     print("Please enter order details here:\n")
     user_name = input("Your Full Name:")
-    branch_number = input("Enter your Branch Number:")
+    branch_number = (input("Enter your Branch Number:"))
     product_sku = input("Enter the Product SKU:")
     product_qty = input("Enter the quantity:")
     payment_method = input("How would you like to pay? Choose either Bank Transfer or Pay on Account:")
@@ -41,6 +41,7 @@ def get_order_data():
     confirm_order = bool(input(f"Confirm Order? (y/n):"))
 
     validate_name_data(user_name)
+    validate_branch_number_data(branch_number)
 
 def validate_name_data(user_name):
     """
@@ -51,9 +52,15 @@ def validate_name_data(user_name):
     else: 
         print("Error: Please enter valid name. We are not able to accept this order. Please try again.")
 
-
-
-
+def validate_branch_number_data(branch_number):
+    """
+    To allow letters only and a valid character length for the user's name
+    """
+    branch_number = False
+    if (len(branch_number) > 2 and len(branch_number) <= 10):
+        print("Error: Your Branch number is invalid. We are not able to accept this order. Please check and try again. ")
+    else:
+        branch_number = True
 
 get_order_data()
 
