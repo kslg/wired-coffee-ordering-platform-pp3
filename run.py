@@ -28,7 +28,7 @@ def get_order_data():
     print("==============================\n")
     print("Please enter order details here:\n")
     user_name = input("Your Full Name:")
-    branch_number = (input("Enter your Branch Number:"))
+    branch_number = input("Enter your Branch Number:")
     product_sku = input("Enter the Product SKU:")
     product_qty = input("Enter the quantity:")
     payment_method = input("How would you like to pay? Choose either Bank Transfer or Pay on Account:")
@@ -54,13 +54,12 @@ def validate_name_data(user_name):
 
 def validate_branch_number_data(branch_number):
     """
-    To allow letters only and a valid character length for the user's name
+    To allow numbers only and max four numbers long.
     """
-    branch_number = False
-    if (len(branch_number) > 2 and len(branch_number) <= 10):
-        print("Error: Your Branch number is invalid. We are not able to accept this order. Please check and try again. ")
+    if branch_number.isdigit() and (len(branch_number) == 4):
+        print()
     else:
-        branch_number = True
+        print("Error: Your Branch number is not valid and should be four numbers only. We are not able to accept this order. Please check and try again. ")
 
 get_order_data()
 
