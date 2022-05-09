@@ -31,7 +31,7 @@ def get_order_data():
     branch_number = input("Enter your Branch Number:")
     product_sku = input("Enter the Product SKU:")
     product_qty = input("Enter the quantity:")
-    payment_method = input("How would you like to pay? Choose either Bank Transfer or Pay on Account:")
+    payment_method = input("How would you like to pay? Choose either 'B' = Bank Transfer or 'P' = Pay on Account:")
     print("**** Order Preview: ****\n")
     print(f"Order Raised by {user_name}")
     print(f"Branch Number is {branch_number}")
@@ -42,6 +42,7 @@ def get_order_data():
 
     validate_name_data(user_name)
     validate_branch_number_data(branch_number)
+    validate_payment_method_data(payment_method)
 
 def validate_name_data(user_name):
     """
@@ -60,6 +61,15 @@ def validate_branch_number_data(branch_number):
         print()
     else:
         print("Error: Your Branch number is not valid and should be four numbers only. We are not able to accept this order. Please check and try again. ")
+
+def validate_payment_method_data(payment_method):
+    """
+    To allow numbers only and max four numbers long.
+    """
+    if (payment_method) == ("B", "P"):
+        print()
+    else:
+        print("Error: Payment option not valid. Please choose either 'B' for Bank Transfer or 'P' for Pay on Account.")
 
 get_order_data()
 
