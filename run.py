@@ -43,6 +43,7 @@ def get_order_data():
     validate_name_data(user_name)
     validate_branch_number_data(branch_number)
     validate_payment_method_data(payment_method)
+    #validate_product_sku_data(product_sku)
 
 def validate_name_data(user_name):
     """
@@ -63,13 +64,23 @@ def validate_branch_number_data(branch_number):
         print("Error: Your Branch number is not valid and should be four numbers only. We are not able to accept this order. Please check and try again. ")
 
 def validate_payment_method_data(payment_method):
-    """
-    To allow numbers only and max four numbers long.
-    """
-    if (payment_method) == ("B", "P"):
+
+    if payment_method == "B":
+        print()
+    elif payment_method == "P":
         print()
     else:
         print("Error: Payment option not valid. Please choose either 'B' for Bank Transfer or 'P' for Pay on Account.")
+
+"""def validate_product_sku_data(product_sku):
+    
+    #To allow numbers only and max four numbers long.
+    
+    if (product_sku) == ("2345, 5432, 3456, 7654, 5678"):
+        print()
+    else:
+        print("Error: You must choose from one of the 4 product skus only. We are not able to accept this order. Please check and try again. ")
+"""
 
 get_order_data()
 
