@@ -30,7 +30,7 @@ def get_order_data():
     user_name = input("Your Full Name:")
     branch_number = input("Enter your Branch Number:")
     product_sku = input("Enter the Product SKU:")
-    product_qty = input("Enter the quantity:")
+    product_qty = input("Enter the quantity (0 to 100 max):")
     payment_method = input("How would you like to pay? Choose either 'b' = Bank Transfer or 'p' = Pay on Account:")
     print("**** Order Preview: ****\n")
     print(f"Order Raised by {user_name}")
@@ -42,8 +42,10 @@ def get_order_data():
 
     validate_name_data(user_name)
     validate_branch_number_data(branch_number)
-    validate_payment_method_data(payment_method)
     validate_product_sku_data(product_sku)
+    validate_product_qty_data(product_qty)
+    validate_payment_method_data(payment_method)
+    
 
 def validate_name_data(user_name):
     """
@@ -90,6 +92,19 @@ def validate_product_sku_data(product_sku):
         print()
     else:
         print("Error: You must choose from one of the 4 product skus only. We are not able to accept this order. Please check and try again. ")
+
+def validate_product_qty_data(product_qty):
+    """
+    To allow numbers only and max four numbers long.
+    """
+    try:
+        if int(product_qty) <= 100:
+            raise ValueError(
+                f"Enter Quantity 1 to 100."
+            )
+    except ValueError as e:
+        print(f"Invalid Data: {e} We are not able to accept this order. Please check and try again.\n")
+
 
 get_order_data()
 
