@@ -95,7 +95,7 @@ def validate_product_sku_data(product_sku):
 
 def validate_product_qty_data(product_qty):
     """
-    To allow numbers only and max four numbers long.
+    To allow integers only between 1 to 100.
     """
     try:
         if int(product_qty) <= 100:
