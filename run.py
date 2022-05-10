@@ -17,36 +17,49 @@ def get_order_data():
     """
     Get order data input from the user
     """
-    print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
-    print("You can order one product at a time.\n")
-    print(" **** Your Top 5 Products to Order: ****\n")
-    print("Coffee Cup\n")
-    print("Sip Lids\n")
-    print("Coffee Beans\n")
-    print("Suger Sticks\n")
-    print("Drinks Stirrer\n")
-    print("==============================\n")
-    print("Please enter order details here:\n")
-    user_name = input("Your Full Name:")
-    branch_number = input("Enter your Branch Number:")
-    product_sku = input("Enter the Product SKU:")
-    product_qty = input("Enter the quantity (0 to 100 max):")
-    payment_method = input("How would you like to pay? Choose either 'b' = Bank Transfer or 'p' = Pay on Account:")
-    print("**** Order Preview: ****\n")
-    print(f"Order Raised by {user_name}")
-    print(f"Branch Number is {branch_number}")
-    print(f"Product SKU {product_sku}")
-    print(f"Quantity {product_qty}")
-    print(f"Payment Method {payment_method}")
-    confirm_order = bool(input(f"Confirm Order? (y/n):"))
+    while True:
+        print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
+        print("You can order one product at a time.\n")
+        print(" **** Your Top 5 Products to Order: ****\n")
+        print("Coffee Cup\n")
+        print("Sip Lids\n")
+        print("Coffee Beans\n")
+        print("Suger Sticks\n")
+        print("Drinks Stirrer\n")
+        print("==============================\n")
+        print("Please enter order details here:\n")
+        user_name = input("Your Full Name:")
+        branch_number = input("Enter your Branch Number:")
+        product_sku = input("Enter the Product SKU:")
+        product_qty = input("Enter the quantity (1 to 100 max):")
+        payment_method = input("How would you like to pay? Choose either 'b' = Bank Transfer or 'p' = Pay on Account:")
+        print("**** Order Preview: ****\n")
+        print(f"Order Raised by {user_name}")
+        print(f"Branch Number is {branch_number}")
+        print(f"Product SKU {product_sku}")
+        print(f"Quantity {product_qty}")
+        print(f"Payment Method {payment_method}")
+        confirm_order = bool(input(f"Confirm Order? (y/n):"))
 
-    validate_name_data(user_name)
-    validate_branch_number_data(branch_number)
-    validate_product_sku_data(product_sku)
-    validate_product_qty_data(product_qty)
-    validate_payment_method_data(payment_method)
+        validate_name_data(user_name)
+        validate_branch_number_data(branch_number)
+        validate_product_sku_data(product_sku)
+        validate_product_qty_data(product_qty)
+        validate_payment_method_data(payment_method)
+
+        if validate_name_data(user_name):
+            print("Data is valid")
+        elif validate_branch_number_data(branch_number):
+            print("Data is valid")
+        elif validate_product_sku_data(product_sku):
+            print("Data is valid")
+        elif validate_product_qty_data(product_qty):
+            print("Data is valid")
+        elif validate_payment_method_data(payment_method):
+            print("Data is valid")
+            break
+    return order_data
     
-
 def validate_name_data(user_name):
     """
     To allow letters only and a valid character length for the user's name
@@ -98,14 +111,18 @@ def validate_product_qty_data(product_qty):
     To allow integers only between 1 to 100.
     """
     try:
-        if int(product_qty) <= 100:
+        if (int(product_qty) >100):
+            raise ValueError(
+                f"Enter Quantity 1 to 100."
+            )
+        elif (int(product_qty) <1):
             raise ValueError(
                 f"Enter Quantity 1 to 100."
             )
     except ValueError as e:
         print(f"Invalid Data: {e} We are not able to accept this order. Please check and try again.\n")
+        return False
 
+    return True
 
-get_order_data()
-
-
+data = get_order_data()
