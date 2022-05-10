@@ -35,7 +35,7 @@ def get_order_data():
     print("**** Order Preview: ****\n")
     print(f"Order Raised by {user_name}")
     print(f"Branch Number is {branch_number}")
-    print(f"Product Name {product_sku}")
+    print(f"Product SKU {product_sku}")
     print(f"Quantity {product_qty}")
     print(f"Payment Method {payment_method}")
     confirm_order = bool(input(f"Confirm Order? (y/n):"))
