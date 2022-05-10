@@ -13,10 +13,15 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('wired_coffee_branch_orders')
 
+
 def get_order_data():
     """
     Get order data input from the user
     """
+    #payment_type = {
+        #'b': "bank transfer",
+        #'p': "pay on account"
+    #}
     while True:
         print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
         print("You can order one product at a time.\n")
@@ -59,7 +64,7 @@ def get_order_data():
             print("Data is valid")
             break
     return order_data
-    
+
 def validate_name_data(user_name):
     """
     To allow letters only and a valid character length for the user's name
@@ -125,4 +130,4 @@ def validate_product_qty_data(product_qty):
 
     return True
 
-data = get_order_data()
+get_order_data()
