@@ -18,10 +18,8 @@ def get_order_data():
     """
     Get order data input from the user
     """
-    #payment_type = {
-        #'b': "bank transfer",
-        #'p': "pay on account"
-    #}
+
+
     while True:
         print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
         print("You can order one product at a time.\n")
@@ -34,6 +32,7 @@ def get_order_data():
         print("==============================\n")
         print("Please enter order details here:\n")
         user_name = input("Your Full Name:")
+        validate_name_data(user_name)
         branch_number = input("Enter your Branch Number:")
         product_sku = input("Enter the Product SKU:")
         product_qty = input("Enter the quantity (1 to 100 max):")
@@ -46,11 +45,12 @@ def get_order_data():
         print(f"Payment Method {payment_method}")
         confirm_order = bool(input(f"Confirm Order? (y/n):"))
 
-        validate_name_data(user_name)
         validate_branch_number_data(branch_number)
         validate_product_sku_data(product_sku)
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
+
+        order_data = (user_name, branch_number, product_sku, product_qty, payment_method)
 
         if validate_name_data(user_name):
             print("Data is valid")
@@ -62,7 +62,7 @@ def get_order_data():
             print("Data is valid")
         elif validate_payment_method_data(payment_method):
             print("Data is valid")
-            break
+        break
     return order_data
 
 def validate_name_data(user_name):
@@ -130,4 +130,5 @@ def validate_product_qty_data(product_qty):
 
     return True
 
-get_order_data()
+final = get_order_data()
+print(final)
