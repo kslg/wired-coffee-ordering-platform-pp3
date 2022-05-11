@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import datetime
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -37,7 +38,10 @@ def get_order_data():
         product_sku = input("Enter the Product SKU:")
         product_qty = input("Enter the quantity (1 to 100 max):")
         payment_method = input("How would you like to pay? Choose either 'b' = Bank Transfer or 'p' = Pay on Account:")
+        date_stamp_preview = (f"Order Date: {datetime.datetime.now():%d-%m-%Y}")
+        date_stamp_file = (f"{datetime.datetime.now():%d-%m-%Y}")
         print("**** Order Preview: ****\n")
+        print(date_stamp_preview)
         print(f"Order Raised by {user_name}")
         print(f"Branch Number is {branch_number}")
         print(f"Product SKU {product_sku}")
@@ -49,8 +53,9 @@ def get_order_data():
         validate_product_sku_data(product_sku)
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
+        #validate_confirm_order(confirm_order)
 
-        order_data = (user_name, branch_number, product_sku, product_qty, payment_method)
+        order_data = (date_stamp_file, user_name, branch_number, product_sku, product_qty, payment_method)
 
         if validate_name_data(user_name):
             print("Data is valid")
@@ -69,7 +74,7 @@ def validate_name_data(user_name):
     """
     To allow letters only and a valid character length for the user's name
     """
-    if user_name.isalpha() and (len(user_name) > 2 and len(user_name) <= 10):
+    if user_name.isalpha() and (len(user_name) > 2 and len(user_name) <= 20):
         print("")
     else: 
         print("Error: Please enter valid name. We are not able to accept this order. Please try again.")
@@ -130,5 +135,12 @@ def validate_product_qty_data(product_qty):
 
     return True
 
-final = get_order_data()
-print(final)
+#def validate_confirm_order(confirm_order):
+
+    #if confirm_order != 'y':
+        #continue
+
+
+
+final_order = get_order_data()
+print(final_order)
