@@ -20,7 +20,6 @@ def get_order_data():
     Get order data input from the user
     """
 
-
     while True:
         print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
         print("You can order one product at a time.\n")
@@ -33,13 +32,13 @@ def get_order_data():
         print("==============================\n")
         print("Please enter order details here:\n")
         user_name = input("Your Full Name:")
-        validate_name_data(user_name)
         branch_number = input("Enter your Branch Number:")
         product_sku = input("Enter the Product SKU:")
         product_qty = input("Enter the quantity (1 to 100 max):")
         payment_method = input("How would you like to pay? Choose either 'b' = Bank Transfer or 'p' = Pay on Account:")
         date_stamp_preview = (f"Order Date: {datetime.datetime.now():%d-%m-%Y}")
         date_stamp_file = (f"{datetime.datetime.now():%d-%m-%Y}")
+        print("\n")
         print("**** Order Preview: ****\n")
         print(date_stamp_preview)
         print(f"Order Raised by {user_name}")
@@ -48,14 +47,16 @@ def get_order_data():
         print(f"Quantity {product_qty}")
         print(f"Payment Method {payment_method}")
         confirm_order = bool(input(f"Confirm Order? (y/n):"))
-
+        validate_name_data(user_name)
         validate_branch_number_data(branch_number)
         validate_product_sku_data(product_sku)
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
         #validate_confirm_order(confirm_order)
-
+        #print(confirm_order)
         order_data = (date_stamp_file, user_name, branch_number, product_sku, product_qty, payment_method)
+        #if confirm_order != 'n':
+            #continue
 
         if validate_name_data(user_name):
             print("Data is valid")
@@ -136,11 +137,6 @@ def validate_product_qty_data(product_qty):
     return True
 
 #def validate_confirm_order(confirm_order):
-
-    #if confirm_order != 'y':
-        #continue
-
-
 
 final_order = get_order_data()
 print(final_order)
