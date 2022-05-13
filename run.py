@@ -46,7 +46,7 @@ def get_order_data():
         print(f"Product SKU {product_sku}")
         print(f"Quantity {product_qty}")
         print(f"Payment Method {payment_method}")
-        confirm_order = bool(input(f"Confirm Order? (y/n):"))
+        confirm_order = (input(f"Confirm Order? (y/n):"))
         validate_name_data(user_name)
         validate_branch_number_data(branch_number)
         validate_product_sku_data(product_sku)
@@ -55,8 +55,9 @@ def get_order_data():
         #validate_confirm_order(confirm_order)
         #print(confirm_order)
         order_data = (date_stamp_file, user_name, branch_number, product_sku, product_qty, payment_method)
-        #if confirm_order != 'n':
-            #continue
+        if confirm_order != 'y':
+            print("Your order has been cancelled. You can place a new order below:\n")
+            continue
 
         if validate_name_data(user_name):
             print("Data is valid")
