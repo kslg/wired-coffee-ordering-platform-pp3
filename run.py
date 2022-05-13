@@ -21,10 +21,11 @@ def get_order_data():
     """
 
     sku = [2345]
-    price_ex_vat = [2.79]
+    priceExvat = [2.79]
     product_name = ["16oz Coffee Cup","lids"]
 
-    productnameOrder=[]
+    productName=[]
+    productPrice=[]
 
     while True:
         print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
@@ -49,15 +50,15 @@ def get_order_data():
         print(date_stamp_preview)
         print(f"Order Raised by {user_name}")
         print(f"Branch Number is {branch_number}")
-        print(f"Product SKU {product_sku}")
+        print(f"Product SKU: {product_sku}")
 
-        if product_sku == 2345:
-            productnameOrder.append(product_name[0])
-            continue
-        print(productnameOrder)
-
-        print(f"Quantity {product_qty}")
-        print(f"Payment Method {payment_method}")
+        if product_sku =='2345':
+            productName.append(product_name[0])
+            productPrice.append(priceExvat[0]*{product_qty})
+        print("Product Name:", *productName)
+        print(f"Total Price ex VAT: {priceExvat}")
+        print(f"Quantity: {product_qty}")
+        print(f"Payment Method: {payment_method}")
         confirm_order = (input(f"Confirm Order? (y/n):"))
         
         validate_name_data(user_name)
@@ -66,7 +67,7 @@ def get_order_data():
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
 
-        order_data = (date_stamp_file, user_name, branch_number, product_sku, product_qty, payment_method)
+        order_data = (date_stamp_file, user_name, branch_number, product_sku, productName, product_qty, payment_method)
         
         if confirm_order != 'y':
             print("Your order has been cancelled. You can place a new order below:\n")
