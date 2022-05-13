@@ -20,6 +20,12 @@ def get_order_data():
     Get order data input from the user
     """
 
+    sku = [2345]
+    price_ex_vat = [2.79]
+    product_name = ["16oz Coffee Cup","lids"]
+
+    productnameOrder=[]
+
     while True:
         print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
         print("You can order one product at a time.\n")
@@ -44,17 +50,24 @@ def get_order_data():
         print(f"Order Raised by {user_name}")
         print(f"Branch Number is {branch_number}")
         print(f"Product SKU {product_sku}")
+
+        if product_sku == 2345:
+            productnameOrder.append(product_name[0])
+            continue
+        print(productnameOrder)
+
         print(f"Quantity {product_qty}")
         print(f"Payment Method {payment_method}")
         confirm_order = (input(f"Confirm Order? (y/n):"))
+        
         validate_name_data(user_name)
         validate_branch_number_data(branch_number)
         validate_product_sku_data(product_sku)
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
-        #validate_confirm_order(confirm_order)
-        #print(confirm_order)
+
         order_data = (date_stamp_file, user_name, branch_number, product_sku, product_qty, payment_method)
+        
         if confirm_order != 'y':
             print("Your order has been cancelled. You can place a new order below:\n")
             continue
@@ -136,8 +149,6 @@ def validate_product_qty_data(product_qty):
         return False
 
     return True
-
-#def validate_confirm_order(confirm_order):
 
 final_order = get_order_data()
 print(final_order)
