@@ -21,7 +21,7 @@ def get_order_data():
     """
 
     sku = [2345,5432,3456,7654,5678]
-    priceExvat = [2.79,2.99,484,7.95,3.49]
+    priceExvat = (2.79,2.99,484,7.95,3.49)
     product_name = ["16oz Coffee Cup", "90mm Coffee Cup Sip Lids", "Colombian Whole Bean Coffee", "White Sugar Sticks", "7'' Wooden Drinks Stirrer"]
 
     productName=[]
@@ -70,8 +70,8 @@ def get_order_data():
             
         print("Product Name:", *productName)
         print("Total Price exVAT:", *productPrice)
-        print(f"Quantity: {product_qty}")
-        print(f"Payment Method: {payment_method}")
+        print("Quantity:", (product_qty))
+        print("Payment Method:", payment_method)
         confirm_order = (input(f"Confirm Order? (y/n):"))
         
         validate_name_data(user_name)
