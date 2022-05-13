@@ -20,9 +20,9 @@ def get_order_data():
     Get order data input from the user
     """
 
-    sku = [2345]
-    priceExvat = [2.79]
-    product_name = ["16oz Coffee Cup","lids"]
+    sku = [2345,5432,3456,7654,5678]
+    priceExvat = [2.79,2.99,484,7.95,3.49]
+    product_name = ["16oz Coffee Cup", "90mm Coffee Cup Sip Lids", "Colombian Whole Bean Coffee", "White Sugar Sticks", "7'' Wooden Drinks Stirrer"]
 
     productName=[]
     productPrice=[]
@@ -41,7 +41,7 @@ def get_order_data():
         user_name = input("Your Full Name:")
         branch_number = input("Enter your Branch Number:")
         product_sku = input("Enter the Product SKU:")
-        product_qty = input("Enter the quantity (1 to 100 max):")
+        product_qty = float(input("Enter the quantity (1 to 100 max):"))
         payment_method = input("How would you like to pay? Choose either 'b' = Bank Transfer or 'p' = Pay on Account:")
         date_stamp_preview = (f"Order Date: {datetime.datetime.now():%d-%m-%Y}")
         date_stamp_file = (f"{datetime.datetime.now():%d-%m-%Y}")
@@ -54,9 +54,22 @@ def get_order_data():
 
         if product_sku =='2345':
             productName.append(product_name[0])
-            productPrice.append(priceExvat[0]*{product_qty})
+            productPrice.append(priceExvat[0]*product_qty)
+        elif product_sku =='5432':
+            productName.append(product_name[1])
+            productPrice.append(priceExvat[1]*product_qty)
+        elif product_sku =='3456':
+            productName.append(product_name[2])
+            productPrice.append(priceExvat[2]*product_qty)            
+        elif product_sku =='7654':
+            productName.append(product_name[3])
+            productPrice.append(priceExvat[3]*product_qty)
+        elif product_sku =='5678':
+            productName.append(product_name[4])
+            productPrice.append(priceExvat[4]*product_qty)
+            
         print("Product Name:", *productName)
-        print(f"Total Price ex VAT: {priceExvat}")
+        print("Total Price exVAT:", *productPrice)
         print(f"Quantity: {product_qty}")
         print(f"Payment Method: {payment_method}")
         confirm_order = (input(f"Confirm Order? (y/n):"))
@@ -67,7 +80,7 @@ def get_order_data():
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
 
-        order_data = (date_stamp_file, user_name, branch_number, product_sku, productName, product_qty, payment_method)
+        order_data = (date_stamp_file, user_name, branch_number, product_sku, productName, productPrice, product_qty, payment_method)
         
         if confirm_order != 'y':
             print("Your order has been cancelled. You can place a new order below:\n")
