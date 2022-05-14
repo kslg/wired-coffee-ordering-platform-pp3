@@ -108,8 +108,10 @@ def validate_name_data(user_name):
     """
     To allow letters only and a valid character length for the user's name
     """
-    if user_name.isalpha() and (len(user_name) > 2 and len(user_name) <= 20):
-        print("")
+    if user_name.replace(" ", "").isalpha():
+        print("Name is valid")
+    #if user_name.isalpha() and (len(user_name) > 2 and len(user_name) <= 20):
+        #print("")
     else: 
         print("Error: Please enter valid name. We are not able to accept this order. Please try again.")
 
