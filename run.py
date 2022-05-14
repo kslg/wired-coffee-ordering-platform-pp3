@@ -19,11 +19,11 @@ def get_order_data():
     Get order data input from the user
     """
 
-    sku = [2345,5432,3456,7654,5678]
-    priceExvat = (2.79,2.99,484,7.95,3.49)
-    product_name = ["16oz Coffee Cup", "90mm Coffee Cup Sip Lids", "Whole Bean Coffee", "White Sugar Sticks", "Wooden Drinks Stirrer"]
-    productName=[]
-    productPrice=[]
+    #sku = [2345,5432,3456,7654,5678]
+    #priceExvat = (2.79,2.99,484,7.95,3.49)
+    #product_name = ("16oz Coffee Cup", "90mm Coffee Cup Sip Lids", "Whole Bean Coffee", "White Sugar Sticks", "Wooden Drinks Stirrer")
+    productName=()
+    productPrice=()
 
     d = {"16oz Coffee Cup": [2345, 2.79, 'Pack of 25'],
     "90mm Coffee Cup Sip Lids": [5432, 2.99, 'Pack of 25'],
@@ -58,23 +58,23 @@ def get_order_data():
         print(f"Product SKU: {product_sku}")
 
         if product_sku =='2345':
-            productName.append(product_name[0])
-            productPrice.append(priceExvat[0]*product_qty)
+            productName = "16oz Coffee Cup"
+            productPrice = 2.79*(product_qty)
         elif product_sku =='5432':
-            productName.append(product_name[1])
-            productPrice.append(priceExvat[1]*product_qty)
+            productName = "90mm Coffee Cup Sip Lids"
+            productPrice = 2.99*(product_qty)
         elif product_sku =='3456':
-            productName.append(product_name[2])
-            productPrice.append(priceExvat[2]*product_qty)            
+            productName = "Whole Bean Coffee"
+            productPrice = 484.00*(product_qty)
         elif product_sku =='7654':
-            productName.append(product_name[3])
-            productPrice.append(priceExvat[3]*product_qty)
+            productName = "White Sugar Sticks"
+            productPrice = 7.95*(product_qty)
         elif product_sku =='5678':
-            productName.append(product_name[4])
-            productPrice.append(priceExvat[4]*product_qty)
+            productName = "Wooden Drinks Stirrer"
+            productPrice = 3.49*(product_qty)
             
-        print("Product Name:", *productName)
-        print("Total Price exVAT:", *productPrice)
+        print("Product Name:", productName)
+        print("Total Price exVAT:", productPrice)
         print("Quantity:", (product_qty))
         print("Payment Method:", payment_method)
         confirm_order = (input(f"Confirm Order? (y/n):"))
@@ -85,8 +85,8 @@ def get_order_data():
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
 
-        order_data = (date_stamp_file, user_name, branch_number, product_sku, productName, productPrice, product_qty, payment_method)
-        
+        order_data = (date_stamp_file, user_name, branch_number, product_sku, productName, product_qty, productPrice, payment_method)
+
         if confirm_order != 'y':
             print("Your order has been cancelled. You can place a new order below:\n")
             continue
@@ -169,5 +169,15 @@ def validate_product_qty_data(product_qty):
 
     return True
 
+def update_order_worksheet(final_order):
+    """
+    Update the google order worksheet, add new row with the list data provided.
+    """
+    print("Processing your order...\n")
+    order_worksheet = SHEET.worksheet("orders")
+    order_worksheet.append_row(final_order)
+    print("Order was submitted successfully.\n")
+
 final_order = get_order_data()
+update_order_worksheet(final_order)
 print(final_order)
