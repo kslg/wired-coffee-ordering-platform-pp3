@@ -41,7 +41,7 @@ def get_order_data():
         user_name = input("Your Full Name:")
         branch_number = input("Enter your Branch Number:")
         product_sku = input("Enter the Product SKU:")
-        product_qty = int(input("Enter the quantity (1 to 100 max):"))
+        product_qty = float(input("Enter the quantity (1 to 100 max):"))
         payment_method = input("How would you like to pay? Choose either 'b' = Bank Transfer or 'p' = Pay on Account:")
         date_stamp_preview = (f"Order Date: {datetime.datetime.now():%d-%m-%Y}")
         date_stamp_file = (f"{datetime.datetime.now():%d-%m-%Y}")
