@@ -18,12 +18,9 @@ def get_order_data():
     """
     Get order data input from the user
     """
-
-    #sku = [2345,5432,3456,7654,5678]
-    #priceExvat = (2.79,2.99,484,7.95,3.49)
-    #product_name = ("16oz Coffee Cup", "90mm Coffee Cup Sip Lids", "Whole Bean Coffee", "White Sugar Sticks", "Wooden Drinks Stirrer")
     productName=()
     productPrice=()
+    paymentMethod=()
 
     d = {"16oz Coffee Cup": [2345, 2.79, 'Pack of 25'],
     "90mm Coffee Cup Sip Lids": [5432, 2.99, 'Pack of 25'],
@@ -72,11 +69,16 @@ def get_order_data():
         elif product_sku =='5678':
             productName = "Wooden Drinks Stirrer"
             productPrice = 3.49*(product_qty)
+
+        if payment_method == 'b':
+            paymentMethod = "Bank Transfer"
+        elif payment_method == 'p':
+            paymentMethod = "Pay on Account" 
             
         print("Product Name:", productName)
         print("Total Price exVAT:", productPrice)
         print("Quantity:", (product_qty))
-        print("Payment Method:", payment_method)
+        print("Payment Method:", paymentMethod)
         confirm_order = (input(f"Confirm Order? (y/n):"))
         
         validate_name_data(user_name)
@@ -85,7 +87,7 @@ def get_order_data():
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
 
-        order_data = (date_stamp_file, user_name, branch_number, product_sku, productName, product_qty, productPrice, payment_method)
+        order_data = (date_stamp_file, user_name, branch_number, product_sku, productName, product_qty, productPrice, paymentMethod)
 
         if confirm_order != 'y':
             print("Your order has been cancelled. You can place a new order below:\n")
@@ -110,8 +112,6 @@ def validate_name_data(user_name):
     """
     if user_name.replace(" ", "").isalpha():
         print("Name is valid")
-    #if user_name.isalpha() and (len(user_name) > 2 and len(user_name) <= 20):
-        #print("")
     else: 
         print("Error: Please enter valid name. We are not able to accept this order. Please try again.")
 
