@@ -109,8 +109,8 @@ def get_order_data():
         elif validate_payment_method_data(payment_method):
             print("Data is valid")
         break
-    return order_data
 
+    return order_data
 def validate_name_data(user_name):
     """
     A function that checks user's name that only letters are used.
@@ -128,7 +128,7 @@ def validate_branch_number_data(branch_number):
         print()
     else:
         print("Error: Your Branch number is not valid and should be four numbers only. We are not able to accept this order. Please check and try again. ")
-
+        exit()
 def validate_payment_method_data(payment_method):
     """
     To only allow two values to pass for payment method user input.
@@ -139,6 +139,8 @@ def validate_payment_method_data(payment_method):
         print()
     else:
         print("Error: Payment option not valid. Please choose either 'b' for Bank Transfer or 'p' for Pay on Account.")
+        exit()
+        
 
 def validate_product_sku_data(product_sku):
     """
@@ -156,6 +158,7 @@ def validate_product_sku_data(product_sku):
         print()
     else:
         print("Error: You must choose from one of the 4 product skus only. We are not able to accept this order. Please check and try again. ")
+        exit()
 
 def validate_product_qty_data(product_qty):
     """
