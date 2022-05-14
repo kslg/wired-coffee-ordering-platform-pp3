@@ -18,10 +18,12 @@ def get_order_data():
     """
     Get order data input from the user
     """
+    #Dynamic variables used to store the order data based on user input.  
     productName=()
     productPrice=()
     paymentMethod=()
 
+    # Top 5 products to order in table format.
     d = {"16oz Coffee Cup": [2345, 2.79, 'Pack of 25'],
     "90mm Coffee Cup Sip Lids": [5432, 2.99, 'Pack of 25'],
     "Whole Bean Coffee": [3456, 484, '6 Bags'],
@@ -32,7 +34,6 @@ def get_order_data():
         print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
         print("You can order one product at a time.\n")
         print(" **** Your Top 5 Products to Order: ****\n")
-
         print ("{:<25} {:<10} {:<15} {:<10}".format('Name','SKU','Price exVAT','Shipped'))
         for name, v in d.items():
             sku, price, ship = v
@@ -53,7 +54,8 @@ def get_order_data():
         print(f"Order Raised by {user_name}")
         print(f"Branch Number is {branch_number}")
         print(f"Product SKU: {product_sku}")
-
+       
+        #To assign the product names to the order based on sku selected by the user input.
         if product_sku =='2345':
             productName = "16oz Coffee Cup"
             productPrice = 2.79*(product_qty)
@@ -69,30 +71,33 @@ def get_order_data():
         elif product_sku =='5678':
             productName = "Wooden Drinks Stirrer"
             productPrice = 3.49*(product_qty)
-
+        
+        #To assign the payment method string sentence to the order based user input.
         if payment_method == 'b':
             paymentMethod = "Bank Transfer"
         elif payment_method == 'p':
-            paymentMethod = "Pay on Account" 
-            
+            paymentMethod = "Pay on Account"    
         print("Product Name:", productName)
         print("Total Price exVAT:", productPrice)
         print("Quantity:", (product_qty))
         print("Payment Method:", paymentMethod)
         confirm_order = (input(f"Confirm Order? (y/n):"))
         
+        #Passing the user input date through the validation funtions.
         validate_name_data(user_name)
         validate_branch_number_data(branch_number)
         validate_product_sku_data(product_sku)
         validate_product_qty_data(product_qty)
         validate_payment_method_data(payment_method)
-
+        
+        #The set of dynamic order data that is the final putput for the order. 
         order_data = (date_stamp_file, user_name, branch_number, product_sku, productName, product_qty, productPrice, paymentMethod)
 
+        #If the user does not confirm the oder, the user is sent back to the beginning of the program. Order is not submitted.
         if confirm_order != 'y':
             print("Your order has been cancelled. You can place a new order below:\n")
             continue
-
+        #Checks that the user data input is valid.        
         if validate_name_data(user_name):
             print("Data is valid")
         elif validate_branch_number_data(branch_number):
@@ -108,16 +113,16 @@ def get_order_data():
 
 def validate_name_data(user_name):
     """
-    To allow letters only and a valid character length for the user's name
+    A function that checks user's name that only letters are used.
     """
     if user_name.replace(" ", "").isalpha():
-        print("Name is valid")
+        print()
     else: 
         print("Error: Please enter valid name. We are not able to accept this order. Please try again.")
 
 def validate_branch_number_data(branch_number):
     """
-    To allow numbers only and max four numbers long.
+    A function that checks only numbers are used and max four numbers long.
     """
     if branch_number.isdigit() and (len(branch_number) == 4):
         print()
@@ -180,6 +185,12 @@ def update_order_worksheet(final_order):
     order_worksheet.append_row(final_order)
     print("Order was submitted successfully.\n")
 
-final_order = get_order_data()
-update_order_worksheet(final_order)
-print(final_order)
+def main():
+    """
+    Run all program functions
+    """
+    final_order = get_order_data()
+    update_order_worksheet(final_order)
+    print(final_order)
+
+main()
