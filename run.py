@@ -14,7 +14,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('wired_coffee_branch_orders')
 
-
 def get_order_data():
     """
     Get order data input from the user
@@ -22,20 +21,26 @@ def get_order_data():
 
     sku = [2345,5432,3456,7654,5678]
     priceExvat = (2.79,2.99,484,7.95,3.49)
-    product_name = ["16oz Coffee Cup", "90mm Coffee Cup Sip Lids", "Colombian Whole Bean Coffee", "White Sugar Sticks", "7'' Wooden Drinks Stirrer"]
-
+    product_name = ["16oz Coffee Cup", "90mm Coffee Cup Sip Lids", "Whole Bean Coffee", "White Sugar Sticks", "Wooden Drinks Stirrer"]
     productName=[]
     productPrice=[]
 
+    d = {"16oz Coffee Cup": [2345, 2.79, 'Pack of 25'],
+    "90mm Coffee Cup Sip Lids": [5432, 2.99, 'Pack of 25'],
+    "Whole Bean Coffee": [3456, 484, '6 Bags'],
+    "White Sugar Sticks": [7654, 7.95, 'Pack of 1000'],
+    "Wooden Drinks Stirrer": [5678, 3.49, 'Pack of 1000']
+    }
     while True:
         print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
         print("You can order one product at a time.\n")
         print(" **** Your Top 5 Products to Order: ****\n")
-        print("Coffee Cup\n")
-        print("Sip Lids\n")
-        print("Coffee Beans\n")
-        print("Suger Sticks\n")
-        print("Drinks Stirrer\n")
+
+        print ("{:<25} {:<10} {:<15} {:<10}".format('Name','SKU','Price exVAT','Shipped'))
+        for name, v in d.items():
+            sku, price, ship = v
+            print ("{:<25} {:<10} {:<15} {:<10}".format(name, sku, price, ship))
+        print("\n")    
         print("==============================\n")
         print("Please enter order details here:\n")
         user_name = input("Your Full Name:")
