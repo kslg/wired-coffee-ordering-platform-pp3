@@ -187,6 +187,8 @@ def update_order_worksheet(final_order):
     order_worksheet = SHEET.worksheet("orders")
     order_worksheet.append_row(final_order)
     print("Order was submitted successfully.\n")
+    print("You can place a new order below:\n")
+    return get_order_data()
 
 def main():
     """
