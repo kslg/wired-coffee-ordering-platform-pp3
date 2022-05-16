@@ -78,7 +78,7 @@ def get_order_data():
         elif payment_method == 'p':
             paymentMethod = "Pay on Account"    
         print("Product Name:", productName)
-        print("Total Price exVAT:", productPrice)
+        print("Total Price exVAT:", (round(productPrice, 2)))
         print("Quantity:", (product_qty))
         print("Payment Method:", paymentMethod)
         confirm_order = (input(f"Confirm Order? (y/n):\n"))
@@ -111,6 +111,7 @@ def get_order_data():
         break
 
     return order_data
+
 def validate_name_data(user_name):
     """
     A function that checks user's name that only letters are used.
@@ -120,6 +121,7 @@ def validate_name_data(user_name):
     else: 
         print("Error: Please enter valid name. We are not able to accept this order. Please try again.")
         return get_order_data()
+
 def validate_branch_number_data(branch_number):
     """
     A function that checks only numbers are used and max four numbers long.
@@ -129,6 +131,7 @@ def validate_branch_number_data(branch_number):
     else:
         print("Error: Your Branch number is not valid and should be four numbers only. We are not able to accept this order. Please check and try again. ")
         return get_order_data()
+
 def validate_payment_method_data(payment_method):
     """
     To only allow two values to pass for payment method user input.
@@ -141,7 +144,6 @@ def validate_payment_method_data(payment_method):
         print("Error: Payment option not valid. Please choose either 'b' for Bank Transfer or 'p' for Pay on Account.")
         return get_order_data()
         
-
 def validate_product_sku_data(product_sku):
     """
     To allow numbers only and max four numbers long.
