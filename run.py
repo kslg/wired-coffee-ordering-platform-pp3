@@ -71,6 +71,10 @@ def get_order_data():
         elif product_sku =='5678':
             productName = "Wooden Drinks Stirrer"
             productPrice = 3.49*(product_qty)
+        else:
+            print("\n")
+            print("Error: You must choose from one of the 4 product skus only. We are not able to accept this order. Please check and try again.\n")
+            return get_order_data()
         
         #To assign the payment method string sentence to the order based user input.
         if payment_method == 'b':
