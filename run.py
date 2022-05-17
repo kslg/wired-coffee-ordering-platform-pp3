@@ -168,7 +168,7 @@ def validate_branch_number_data(branch_number):
     else:
         print(
             "*** Error: Your Branch number is not valid and should be" +
-            "four numbers only.\n We are not able to accept this order." +
+            " four numbers only.\n We are not able to accept this order." +
             " Please check and try again.\n"
             )
         return get_order_data()
@@ -228,8 +228,9 @@ def validate_product_qty_data(product_qty):
             )
     except ValueError as e:
         print(
-            f"*** Error: {e} We are not able to accept this order.\n" +
-            "Please check and try again.\n"
+            f"*** Error: {e} \n" +
+            "We are not able to accept this order." +
+            " Please check and try again.\n"
             )
         return get_order_data()
 
