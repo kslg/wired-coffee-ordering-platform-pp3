@@ -169,107 +169,151 @@ You can view the worksheet <a href="https://docs.google.com/spreadsheets/d/1umzQ
 
 ![image](/docs/images/create-private-key.png)
 
+------
+# Create Gitpod Workspace
+
+1. Create the Github Repository from the `Python Essentials Template`
+https://github.com/Code-Institute-Org/python-essentials-template
+
+![image](/docs/images/setup-gitpodworkspace-1.png)
+
+2. Name the project (repository) > click `Create repository`
+
+![image](/docs/images/setup-gitpodworkspace-2.png)
+
+3. Click the `Gitpod` button to build the workspace.
+
+![image](/docs/images/setup-gitpodworkspace-3.png)
+
+4. Add the google json credentials file to the workspace and rename it to `creds.json` so it’s easier to access the file for the project.
+
+![image](/docs/images/setup-gitpodworkspace-4.png)
+
+5. I need to share the Google Orders Sheet with the `Client email` from the generated credentials.
+Change permissions to `Editor` > Untick `Notify People` > Click `Share`
+
+![image](/docs/images/setup-gitpodworkspace-5.png)
+
+## Update `.gitignore` with json credentials
+
+The creds.json file contains sensitive information that should be kept secret.
+I need to ensure that the json file is never committed or sent to Github.
+
+The .gitignore file contains a list of files that should not be committed or sent to Github. I added the creds.json to the list to protect the file.
+
+![image](/docs/images/gitignore.png)
+
+Once saved I committed the changes and pushed to Github
+
+![image](/docs/images/gitignore_deploy.png)
+
+## Pin the workspace
+
+Gitpod workspaces are not permanent by default, if they are unused for 14 days, they’re deleted unless the workspace is pinned. I pinned the workspace.
+ 
+------
+
+# Connecting to the Google Sheets API
+
+In order to use Google Sheets API I need to install `two additional dependencies` in the project, as they are not part of the standard Python library.
+
+`The first is Google Auth:` This uses the creds.json file to set up the authentication needed to access our Google Cloud Project.
+
+`The second is Gspread:` This is a library of code that will use to access and update data on our spreadsheet.
+
+I used the following command in the bach terminal to install the dependencies:
+
+`pip3 install gspread google-auth`
+
+Once installed, I need to import them into my python file: `import gspread`
+
+This imports the entire gspread library so I can access any function, class or method within it.
+
+`import credentials` imports the credentials class which is part of the service_account function from the Google auth library.
+
+`from google.oauth2.service_account import Credentials`
+
+![image](/docs/images/api-dependencies.png)
+
+## Set the Scope
+
+This configuration specifies what the user has access to.
+The scope lists the APIs that the program should access in order to run.
+The scope variable value will not change, it is a Constant variable and therefore written in capitals. 
+This makes it easier for developers to identify variables that should not be changed.
+
+![image](/docs/images/api-scope.png)
+
+Additional Constant Variable settings to help access the spreadsheet data:
+
+![image](/docs/images/api-access-to-sheet-data.png)
+
+## Testing the API
+Testing the API to try and access the data in the worksheet.
+
+![image](/docs/images/api-testing.png)
+
+------
+
+# Setup Heroku
+
+
 
 ------
 # Testing
 
-### Responsive Testing
+## Responsive Testing
 
-I have tested that the site is responsive by applying specific styles for the most common `CSS breakpoints`
+The user experience for a command line interface is not great and could lead to accedental input errors by thr users, making the user frustrated.
 
-#### Breakpoints used for mobile devices:
+Therefore, I made the app is only visible and can be run on a laptop or desktop workstation.
 
-1. `max-width: 480px`
-2. `max-width: 320px`
+### Breakpoint for laptop and desktop:
 
-#### Breakpoints used for tablet devices:
-
-1. `max-width: 820px`
-2. `max-width: 768px`
-
-I used the Chrome inspect element to check the different CSS breakpoints.
+1. `max-width: 748px`
 
 ## User Stories
 
-### Welcome Screen
+## Show Product Menu
+`As a` Wired Coffee Employee.
+`I want to` see what products are available to order in a table format. 
+`So that` I can input the order data.
 
-`As a` Player.
-`I want to` see the welcome screen.
-`So that` i know the quiz is ready for me to start.
-`Also` i should be able to click 'Hot to play' to see instructions before playing.
+## Input Order Data 
+`As a` Wired Coffee Employee
+`I want to` be able to enter order details into the programme
+`So that` my order can be processed.
 
-### Quiz Logic
+## Data Validation
+`As a` Wired Coffee Employee. 
+`I want to` be told by the programme that my order details are incorrect `and` stop the order from being processed, `if` I enter invalid data. 
+`So that` I am returned to the start of the programme.
 
-`As a` Player.
-`I want to` answer five multi-choice questions.
-`So that` i can complete the quiz.
+## Preview Order Data
+`As a` Wired Coffee Employee.
+`I want to` see my order details displayed in the terminal before I confirm the order. 
+`So that` I know my order details are correct. 
 
-### Correct and Incorrect Answer Logic
+## Confirm Order
+`As a` Wired Coffee Employee 
+`I want to` be prompted to confirm my order before I submit the order.
+`So that` I know my order was not submitted on it’s own by mistake.
 
-`As a` Player.
-`I want to` see if the answers i select turn red or green.
-`So that` during the quiz i can see which of my answers are right or wrong.
+## Send Order Data to Worksheet
+`As a` 3rd Party Supplier.
+`I want` the Wired Coffee order details to be added to the worksheet provided.
+`So that` I can view and fulfil the order correctly. 
 
-### Countdown Timer
+## Calculate Total price for the order
+`As a` Wired Coffee Employee. 
+`I want to` know the total price of the order based on the product `and` quantity selected.
+`So that` I know how much I’m going to be charged by the supplier.
 
-`As a` Player.
-`I want to` click 'START' to start the countdown timer.
-`So that` i have sixty seconds to complete the quiz.
+## Option to Send Order Email Confirmation
+`As a` Wired Coffee Employee.
+`I want` a confirmation email of the order sent to my email address.
+`So I can` reference my order if needed.
 
-### Window Alert
-
-`As a` Player.
-`I want to` be shown a window alert if I do not complete the quiz in time.
-`So that` the game tells me that I have ran out of time.
-`Otherwise` I will not be shown the alert.
-
-### Dark Mode
-
-`As a` Player.
-`I want to` be able to toggle between dark mode and light mode.
-`So that` i can view the game at night to reduce eye strain.
-
-### How to Play Modal
-
-`As a` Player.
-`I want to` be able to see a modal displayed.
-`So that` i can see instrucitons how to play the quiz.
-
-### Reset Button
-
-`As a` Player.
-`I want to` be able to restart the quiz and the countdown timer.
-`So that` i can see try to complete the quiz on time.
-
-### Social Share functionality
-
-`As a` Player.
-`I want to` share the game on social media and see the icons in the footer.
-`So that` i can share the game with my family and friends.
-
-### Score area
-
-`As a` Player.
-`I want to` see my final score out of five.
-`So that` i know how many questions i got right.
-
-### Check Answers area
-
-`As a` Player.
-`I want to` be able to see my answers `but not` the actual answers.
-`So that` i know what questions i may have gotten wrong.
-
-### Privacy Policy
-
-`As a` Player.
-`I want to` control what data of mine is tracked and shared.
-`So that` i know what data of mine being tracked and shared.
-
-### Responsive Layout
-
-`As a` Player.
-`I want to` be able to play the quiz on my mobile phone, tablet and laptop.
-`So that` i can play the quiz anywhere and anytime i choose.
 
 
 ## Test Cases
