@@ -274,110 +274,83 @@ Therefore, I made the app is only visible and can be run on a laptop or desktop 
 
 ## User Stories
 
-## Show Product Menu
+### Show Product Menu
 `As a` Wired Coffee Employee.
 `I want to` see what products are available to order in a table format. 
 `So that` I can input the order data.
 
-## Input Order Data 
+### Input Order Data 
 `As a` Wired Coffee Employee
 `I want to` be able to enter order details into the programme
 `So that` my order can be processed.
 
-## Data Validation
+### Data Validation
 `As a` Wired Coffee Employee. 
 `I want to` be told by the programme that my order details are incorrect `and` stop the order from being processed, `if` I enter invalid data. 
 `So that` I am returned to the start of the programme.
 
-## Preview Order Data
+### Preview Order Data
 `As a` Wired Coffee Employee.
 `I want to` see my order details displayed in the terminal before I confirm the order. 
 `So that` I know my order details are correct. 
 
-## Confirm Order
+### Confirm Order
 `As a` Wired Coffee Employee 
 `I want to` be prompted to confirm my order before I submit the order.
 `So that` I know my order was not submitted on it’s own by mistake.
 
-## Send Order Data to Worksheet
+### Send Order Data to Worksheet
 `As a` 3rd Party Supplier.
 `I want` the Wired Coffee order details to be added to the worksheet provided.
 `So that` I can view and fulfil the order correctly. 
 
-## Calculate Total price for the order
+### Calculate Total price for the order
 `As a` Wired Coffee Employee. 
 `I want to` know the total price of the order based on the product `and` quantity selected.
 `So that` I know how much I’m going to be charged by the supplier.
 
-## Option to Send Order Email Confirmation
+### Option to Send Order Email Confirmation
 `As a` Wired Coffee Employee.
 `I want` a confirmation email of the order sent to my email address.
 `So I can` reference my order if needed.
 
-
-
 ## Test Cases
 
-### Welcome Screen
+### Show Product Menu
 
-1. I can see the welcome screen on page load `PASSED`
-2. I cannot start the quiz until i click 'START' which starts the quiz and the timer. `PASSED`
-3. I can click 'How to play' before starting the game.`PASSED`
+The product menu shows in a table format is clearly legible `PASSED`
 
-### Quiz Logic
-I can go through the quiz which has five multiple-choice questions `PASSED`
+### Input Order Data
+The input fields allow me to enter data. `PASSED`
 
-![image](/docs/images/fith-question.png)
+## Data Validation
+1. The data validation for each input works as expected. `PASSED` 
+2. I cannot proceed with the order when invlaid data has been entered `PASSED`
+3. I am presented with a `user friendly error message` related to the invalid data.`PASSED`
 
-### Correct and Incorrect Answer Logic
-I should see my selection highlightd in red or green to show which answers are right and wrong. `PASSED`
+## Preview Order Data
+I can see my all my order details printed in the terminal for me to check and is clearly legible `PASSED`
 
-![image](/docs/images/correct-answer-green.png)
-![image](/docs/images/wrong-answer-red.png)
+## Confirm Order
+1. I am given the option to confirm my order with a simple ‘y’ for Yes and ‘n’ for No `PASSED`
+2. If I say ‘y’ my order is processed `PASSED`
+3. If I say ‘n’ my order is not processed `PASSED`
+4. When I say 'n', I am directed my to the beginning with user friendly messaging telling me my order was not placed and I can place a new order. `PASSED`
 
-### Countdown Timer
+## Send Order Data to Worksheet
+1. The order data is sent to the google worksheet `PASSED`
+2. The order data is added to the correct columns in the worksheet `PASSED`
+3. The order data is in the correct format `PASSED`
 
-When I click 'START' the countdown timer starts and I have sixty seconds.`PASSED`
+## Calculate Total price for the order
+1. The total price is being calculated using the product price and the quantity number selected `PASSED`
+2. The total price is given two decimal places in the Order Preview `FAILED`. Possibly an edge case
 
-![image](/docs/images/countdown-timer.png)
+![image](/docs/images/test-case-edge-case.png)
 
+3. The total price is given two decimal places in the Worksheet `PASSED`
 
-### Window Alert
-
-1. The window alert is displayed if I run out of tie to complete the quiz `PASSED`
-2. The alert should not display if I complete the quiz on time. `PASSED`
-
-![image](/docs/images/window-alert-times-up.png)
-
-### Dark Mode
-
-I should be able to toggle between normal and dark mode. `PASSED`
-
-### How to Play Modal
-
-I should be able to open and close the modal via the button. `PASSED`
-
-### Reset Button
-
-I should be able to restart the quiz by clicking the button `PASSED`
-
-### Social Share functionality
-
-I can see the social share icons in the footer `PASSED`
-
-
-### Score area
-
-I can see my final score out of five. `PASSED`
-
-### Check Answers area
-
-I can see my answers in the dedicated area. `PASSED`
-
-### Privacy Policy
-
-I can manage my privacy settings `FAILED`. 
-Not able to see the privacy link on certain devices and layouts.
+![image](/docs/images/worksheet-test.png)
 
 ### Responsive Layout
 
