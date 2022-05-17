@@ -33,7 +33,7 @@ def get_order_data():
       "Wooden Drinks Stirrer": [5678, 3.49, 'Pack of 1000']
     }
     while True:
-        print("Welcome to the Wired Coffee B2B Ordering Plaform.\n")
+        print("==== Welcome to the Wired Coffee B2B Ordering Plaform. ==== \n")
         print("You can order one product at a time.\n")
         print(" **** Your Top 5 Products to Order: ****\n")
         print ("{:<25} {:<10} {:<15} {:<10}\
@@ -86,8 +86,9 @@ def get_order_data():
         else:
             print("\n")
             print(
-                "Error: You must choose from one of the 4 product skus only." +
-                " We are not able to accept this order." +
+                "*** Error: You must choose from one of" +
+                " the 4 product skus only.\n" +
+                "We are not able to accept this order." +
                 " Please check and try again.\n"
             )
             return get_order_data()
@@ -125,7 +126,7 @@ def get_order_data():
         """
         if confirm_order != 'y':
             print(
-                "Your order has been cancelled." +
+                "*** Your order has been cancelled." +
                 " You can place a new order below:\n"
             )
             continue
@@ -153,8 +154,8 @@ def validate_name_data(user_name):
         print()
     else:
         print(
-            "Error: Please enter valid name. We are not able to accept" +
-            "this order. Please try again.")
+            "\n*** Error: Please enter valid name. We are not able to accept" +
+            "this order. Please try again.\n")
         return get_order_data()
 
 
@@ -166,9 +167,9 @@ def validate_branch_number_data(branch_number):
         print()
     else:
         print(
-            "Error: Your Branch number is not valid and should be" +
-            "four numbers only. We are not able to accept this order." +
-            "Please check and try again.\n"
+            "*** Error: Your Branch number is not valid and should be" +
+            "four numbers only.\n We are not able to accept this order." +
+            " Please check and try again.\n"
             )
         return get_order_data()
 
@@ -183,8 +184,8 @@ def validate_payment_method_data(payment_method):
         print()
     else:
         print(
-            "Error: Payment option not valid. Please choose either 'b' for" +
-            " Bank Transfer or 'p' for Pay on Account.\n"
+            "*** Error: Payment option not valid. Please choose either:\n" +
+            "'b' for Bank Transfer or 'p' for Pay on Account.\n"
             )
         return get_order_data()
 
@@ -205,8 +206,9 @@ def validate_product_sku_data(product_sku):
         print()
     else:
         print(
-            "Error: You must choose from one of the 4 product skus only." +
-            "We are not able to accept this order. Please check and try again."
+            "*** Error: You must choose from one of the 4 product skus only." +
+            "We are not able to accept this order.\n"
+            " Please check and try again."
             )
         return get_order_data()
 
@@ -222,12 +224,12 @@ def validate_product_qty_data(product_qty):
             )
         elif (int(product_qty) < 1):
             raise ValueError(
-                f"Enter Quantity 1 to 100."
+                f"Please enter a quantity from 1 to 100."
             )
     except ValueError as e:
         print(
-            f"Invalid Data: {e} We are not able to accept this order." +
-            " Please check and try again.\n"
+            f"*** Error: {e} We are not able to accept this order.\n" +
+            "Please check and try again.\n"
             )
         return get_order_data()
 
