@@ -135,6 +135,41 @@ You can view the worksheet <a href="https://docs.google.com/spreadsheets/d/1umzQ
 
 ![image](/docs/images/google-api-create-new%20project.png)
 
+### Enable APIs for Google Drive and Google Sheets
+
+![image](/docs/images/enable-api-for-googl-sheet.png)
+![image](/docs/images/enable-api-for-googl-sheet_2.png)
+
+### Generate API Credentials for Google Drive
+
+![image](/docs/images/create-api-credentials.png)
+
+### Enter a Service Account name - then click `Create`
+
+![image](/docs/images/service-account-name.png)
+
+### In the Role Dropdown box choose `Basic` > `Editor` then press `Continue`
+
+![image](/docs/images/grant-service-access.png)
+
+### These options can be left blank, click `Done`
+
+![image](/docs/images/service-account-name_2.png)
+
+### On the Credentials page, click on the `Service Account` that has been created and click on it.
+
+![image](/docs/images/credentials-page.png)
+
+### On the next page, click on the `Keys` tab
+
+![image](/docs/images/api-keys.png)
+
+### Click on the `Add Key` dropdown and select `Create New Key`
+### Select `JSON` and then click `Create`. This will trigger the json file with your API credentials in it to download to your machine. 
+
+![image](/docs/images/create-private-key.png)
+
+
 ------
 # Testing
 
