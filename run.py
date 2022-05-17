@@ -202,6 +202,5 @@ def main():
     """
     final_order = get_order_data()
     update_order_worksheet(final_order)
-    print(final_order)
-
+    
 main()
