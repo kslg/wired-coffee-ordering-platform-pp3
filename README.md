@@ -2,20 +2,20 @@
 
 # Contents
 
-* [**Introduction**](<## Introduction>)
+* [**Introduction**](<#introduction>)
 * [**Accessibility Score**](<##accessibility-score>)
-* [**Advanced SEO**](<##advanced-seo>)
-* [**Features List**](<##features-List>)
-* [**Setting Up Google Cloud API Integration**](<##setting-up-google-cloud-api-integration>)
-* [**Create Gitpod Workspace**](<##create-gitpod-workspace>)
-* [**Connecting to the Google Sheets API**](<##connecting-to-the-google-sheets-api>)
-* [**Setup Heroku**](<##setup-heroku>)
-* [**Testing**](<##testing>)
-* [**Deployment**](<##deployment>)
-* [**Bugs Encountered during Testing**](<##bugs-encountered-during-testing>)
+* [**Advanced SEO**](<#advanced-seo>)
+* [**Features List**](<#features-list>)
+* [**Setting Up Google Cloud API Integration**](<#setting-up-google-cloud-api-integration>)
+* [**Create Gitpod Workspace**](<#create-gitpod-workspace>)
+* [**Connecting to the Google Sheets API**](<#connecting-to-the-google-sheets-api>)
+* [**Setup Heroku**](<#setup-heroku>)
+* [**Testing**](<#testing>)
+* [**Deployment**](<#deployment>)
+* [**Bugs Encountered during Testing**](<#bugs-encountered-during-testing>)
 * [**UX Planning**](<##ux-planning>)
-* [**Credits / Borrowed Resources / Tools**](<##credits-borrowed-resources-tools>)
-* [**Descoped Requirements / Future Enhancements**](<##descoped-requirements-future-enhancements>)
+* [**Credits / Borrowed Resources / Tools**](<##credits--borrowed-resources--tools>)
+* [**Descoped Requirements / Future Enhancements**](<##descoped-requirements--future-enhancements>)
 * [**Unfixed Bug**](<##unfixed-bug>)
 
 # Introduction
