@@ -9,7 +9,7 @@
 * [**Setting Up Google Cloud API Integration**](<#setting-up-google-cloud-api-integration>)
 * [**Create Gitpod Workspace**](<#create-gitpod-workspace>)
 * [**Connecting to the Google Sheets API**](<#connecting-to-the-google-sheets-api>)
-* [**Setup Heroku**](<#setup-heroku>)
+* [**Heroku Setup and Deployment**](<#heroku-setup-and-deployment>)
 * [**Testing**](<#testing>)
 * [**Deployment**](<#deployment>)
 * [**Bugs Encountered during Testing**](<#bugs-encountered-during-testing>)
@@ -253,7 +253,27 @@ Testing the API to try and access the data in the worksheet.
 [Back to top](<#contents>)
 ------
 
-# Setup Heroku
+# Heroku Setup and Deployment
+
+1. I had to create a new app
+![image](/docs/images/heroku-create-new-app.png)
+
+2. Update the Config Vars
+This allows the Google API to work with Heroku.
+To ensure the deployment does not fail I had to add an additional Config Var in Heroku's Settings.
+
+The key is `PORT` and the value is `8000`
+
+![image](/docs/images/heroku-config-vars.png)
+
+3. Need to select the relevant buildpack as they help install dependencies when deploying Heroku app.
+
+![image](/docs/images/heroku-buildpacks.png)
+
+## Heroku Deployment
+
+1. I run the command `heroku login -i` in the gitpod terminal and logged in when prompted. 
+2. I was then able to deploy new versions of the app by running the command `git push heroku main` and the app was deployed to Heroku and visible on the live URL.
 
 
 [Back to top](<#contents>)
