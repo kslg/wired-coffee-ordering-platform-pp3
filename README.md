@@ -3,7 +3,7 @@
 # Contents
 
 * [**Introduction**](<#introduction>)
-* [**Accessibility Score**](<##accessibility-score>)
+* [**Accessibility Score**](<#accessibility-score>)
 * [**Advanced SEO**](<#advanced-seo>)
 * [**Features List**](<#features-list>)
 * [**Setting Up Google Cloud API Integration**](<#setting-up-google-cloud-api-integration>)
@@ -13,10 +13,10 @@
 * [**Testing**](<#testing>)
 * [**Deployment**](<#deployment>)
 * [**Bugs Encountered during Testing**](<#bugs-encountered-during-testing>)
-* [**UX Planning**](<##ux-planning>)
-* [**Credits / Borrowed Resources / Tools**](<##credits--borrowed-resources--tools>)
-* [**Descoped Requirements / Future Enhancements**](<##descoped-requirements--future-enhancements>)
-* [**Unfixed Bug**](<##unfixed-bug>)
+* [**UX Planning**](<#ux-planning>)
+* [**Credits / Borrowed Resources / Tools**](<#credits--borrowed-resources--tools>)
+* [**Descoped Requirements / Future Enhancements**](<#descoped-requirements--future-enhancements>)
+* [**Unfixed Bug**](<#unfixed-bug>)
 
 # Introduction
 
