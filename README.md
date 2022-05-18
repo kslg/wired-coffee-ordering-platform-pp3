@@ -516,88 +516,51 @@ Using the `MoSCoW prioritisation method` which is used in Agile project delivery
 ### Site Architecture
 - Only one page is presented to the user with a CTA Button, and the Terminal Interface.
 
-![image](/docs/images/wireframe.png)
-
 ### Header and Footer
-- Normal Mode: Light Blue Background and Yellow Gold Text. 
-- Dark Mode: Dark Blue Background and Red Text. 
+Not Applicable
 
-Examples
+### CTA Buttons
+Pre-built and styled in the Heroku App.
 
-![image](/docs/images/header-mock-up.png)
+### Colour Palette:
+Not Applicable
 
-![image](/docs/images/footer-mock-up.png)
-
-## CTA Buttons
-Non-clicked State: 
-- White text box
-- Dark Blue text
-
-Hover State:
-- Dark Blue text box
-- Yellow Gold text
-
-![image](/docs/images/hover-state-screenshot.png)
-
-## Colour Palette:
-
-![image](/docs/images/colour-pallette-screenshot.png)
-
-## Iconography:
-
-- Toggle icons will match the colours from normal and dark mode.
-- Social share icons/buttons will be served by the 3rd party ShareThis widget.
-
-![image](/docs/images/darkmode-toggle-icons.png)
-![image](/docs/images/sharethis-preview.png)
+### Iconography:
+Not Applicable
 
 ## The Surface Plane / Final Concept
 
-### Game Area Wireframe
-![image](/docs/images/gamearea-wireframe.png)
-
-### Score Area Wireframe
-![image](/docs/images/scorearea-wireframe.png)
+### Wireframe
+![image](/docs/images/wireframe.png)
 
 ------
 
 ### Credits / Borrowed Resources / Tools
 
-- Favicon 
-https://www.pngaaa.com/ - PNG Images For Free
-
-- Font Library 
-https://fonts.google.com/
-
-- Quiz Questions
-https://www.funtrivia.com/en/Movies/Spider-Man-4653.html
-
-
-- Share This widget
-https://sharethis.com/platform/share-buttons/
-- Dark Mode Functionality
-https://www.futurecodersweb.com/2021/06/create-dark-and-light-mode-toggle.html
-- Setup Alerting for the timer
-https://techfunda.com/howto/595/stop-timer
-https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
-https://developer.mozilla.org/en-US/docs/Web/JavaScript
-- Restart Button Functionality: 
-https://stackoverflow.com/questions/5611119/how-to-make-a-refresh-button-using-javascript
-- Quiz Structure Inspiration
-https://www.youtube.com/watch?v=2jwdyO_UunE&t=2421s
-- Javascript CCS Modal Inspiration
-https://www.youtube.com/watch?v=uUCpopjPZdI
-- Spider-Man Background Image:
-https://wallpapersafari.com/w/19SZQb
-- RGBA Generator
-https://rgbacolorpicker.com/hex-to-rgba
-- Dark Mode Research
-https://blog.weekdone.com/why-you-should-switch-on-dark-mode/
+- Validate Name: 
+https://www.youtube.com/watch?v=E3aHAIVknh4
+- Validate Branch Number / Error Handling:
+https://stackoverflow.com/questions/23326099/how-can-i-limit-the-user-input-to-only-integers-in-python
+https://stackoverflow.com/questions/37934847/attributeerror-bool-object-has-no-attribute-items
+- Formatting Date Stamp: 
+https://stackoverflow.com/questions/311627/how-to-print-a-date-in-a-regular-format
+- Adding Date Stamp: 
+https://www.w3resource.com/python-exercises/python-basic-exercise-3.php
+- Table Formatting in Python
+https://www.educba.com/python-print-table/
+- Validate Name in Python
+https://stackoverflow.com/questions/28495822/best-way-to-validate-a-name-in-python
+- How to exit a python script in an if statement:
+https://www.edureka.co/community/21051/how-to-exit-a-python-script-in-an-if-statement#:~:text=To%20stop%20code%20execution%20in,way%20of%20stopping%20code%20execution.
+- Block Search indexing with noindex
+https://developers.google.com/search/docs/advanced/crawling/block-indexing
+- Format two decimal places for price calculation:
+https://www.codegrepper.com/code-examples/python/two+decimal+places+python
 - Agile User Stories Support Documentation
 https://www.atlassian.com/agile/project-management/user-stories 
-- Inspired by the Love Maths Project. 
+- Inspired by the Love Sandwiches Project. 
 - Wireframes produced using Balsamic
-- Support from my mentor Gerard McBride, Slack Community and Tutor Support (Ger)
+- Support from my mentor Martina, Slack Community and Tutor Support.
 - Online Code Support and References: W3C Schools and Stackoverflow Community.
 
 ------
@@ -606,18 +569,19 @@ https://www.atlassian.com/agile/project-management/user-stories
 - Some requirements had to be descoped from the project due to time contraints. 
 - Descoping is a process which is part or Agile Project Management, and can be requirements that are brought back into a sprint or project at a later date.
 
-1. You can go to the next question without answering any of them. Conditional logic needed.
-2. Add more questions to the question bank and serve random questions to the player.
-3. Share your score with friends.
-4. Display a cover page intrducing the quiz. 
-5. A 3,2,1 countdown before starting the quiz.
+1. Order confirmation email option.
+2. Being able to purchase more than one product at a time.
+3. Make it responsive for Tablat and Mobile views.
+4. Add styling and theme.
+5. Add a favicon.
+6. Refactor the code using dictionaries for data structuring and ternery expressions to reduce the lines of code.
 
 ------
 
 ### Unfixed Bug
  Due to time constraints the following bugs are still unfixed. Following Agile practises, these bugs can go into a backlog of requirements and prioritised accordingly.
 
-- Make sure Privacy Policy link is displayed on all layouts.
+- Fix the decimal place on total price when shown in Order Preview.
 
 ------
 
