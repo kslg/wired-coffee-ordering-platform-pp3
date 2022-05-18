@@ -3,9 +3,20 @@
 # Contents
 
 * [**Introduction**](<## Introduction>)
-* [**Advanced SEO**](<## Advanced-SEO>)
-
-
+* [**Accessibility Score**](<##accessibility-score>)
+* [**Advanced SEO**](<##advanced-seo>)
+* [**Features List**](<##features-List>)
+* [**Setting Up Google Cloud API Integration**](<##setting-up-google-cloud-api-integration>)
+* [**Create Gitpod Workspace**](<##create-gitpod-workspace>)
+* [**Connecting to the Google Sheets API**](<##connecting-to-the-google-sheets-api>)
+* [**Setup Heroku**](<##setup-heroku>)
+* [**Testing**](<##testing>)
+* [**Deployment**](<##deployment>)
+* [**Bugs Encountered during Testing**](<##bugs-encountered-during-testing>)
+* [**UX Planning**](<##ux-planning>)
+* [**Credits / Borrowed Resources / Tools**](<##credits-borrowed-resources-tools>)
+* [**Descoped Requirements / Future Enhancements**](<##descoped-requirements-future-enhancements>)
+* [**Unfixed Bug**](<##unfixed-bug>)
 
 # Introduction
 
@@ -25,7 +36,7 @@ This solution can be used for any business sector that adopts a B2B business mod
 
 ------
 
-# Accessibility Score: Google Lighthouse Test
+# Accessibility Score
 
 The site ran through `Google Lighthouse` for Desktop and Mobile:
 
@@ -46,7 +57,7 @@ Each of these categories are judged on the following:
 
 ![Image](/docs/images/Google_Lighthouse_mobile_result.png)
 
-
+[Back to top](<#contents>)
 ------
 
 # Advanced SEO
@@ -54,6 +65,7 @@ Each of these categories are judged on the following:
 This solution is not for public use and therefore should not be crawlable in search engines. 
 Therefore, I’ve implemented the `noindex` `meta tags` to the head section in the layout.html file, to prevent most search engine web crawlers, including Google’s from indexing the page.
 
+[Back to top](<#contents>)
 ------
 
 # Features List
@@ -63,7 +75,6 @@ Therefore, I’ve implemented the `noindex` `meta tags` to the head section in t
 When the program runs the user is greeted with a `Welcome Message` and Instructions on how to use the program.
 
 There is also a `Product Menu` so the user knows what products are available to order.
-
 
 ![image](/docs/images/welcome-and-menu.png)
 
@@ -101,9 +112,10 @@ When the user confirms the order, the order is sent to an `external worksheet` f
 
 You can view the worksheet <a href="https://docs.google.com/spreadsheets/d/1umzQeyeoHA8ijs8EIf7sGU_tvIjNHKc8SBv6D_VCceE/edit?usp=sharing" target="_blank" rel="noopener">here.</a>
 
+[Back to top](<#contents>)
 ------
 
-# Setting Up Google Cloud API Integration:
+# Setting Up Google Cloud API Integration
 
 ## Activate Google API Credentials
 
@@ -152,6 +164,7 @@ You can view the worksheet <a href="https://docs.google.com/spreadsheets/d/1umzQ
 
 ![image](/docs/images/create-private-key.png)
 
+[Back to top](<#contents>)
 ------
 # Create Gitpod Workspace
 
@@ -194,6 +207,7 @@ Once saved I committed the changes and pushed to Github
 
 Gitpod workspaces are not permanent by default, if they are unused for 14 days, they’re deleted unless the workspace is pinned. I pinned the workspace.
  
+[Back to top](<#contents>)
 ------
 
 # Connecting to the Google Sheets API
@@ -236,12 +250,13 @@ Testing the API to try and access the data in the worksheet.
 
 ![image](/docs/images/api-testing.png)
 
+[Back to top](<#contents>)
 ------
 
 # Setup Heroku
 
 
-
+[Back to top](<#contents>)
 ------
 # Testing
 
@@ -346,15 +361,16 @@ I inspected the code using a <a href="http://pep8online.com/" target="_blank" re
 
 ![image](/docs/images/pep8-validation.png)
 
+[Back to top](<#contents>)
 ------
 
-## Deployment
+# Deployment
 
-### Running the code in the GitPod Terminal
+## Running the code in the GitPod Terminal
 
 I worked in the editor and checked my work via the gitpod terminal. I ran the run.py file using the following command `python3 run.py`
 
-### Deployment to Git
+## Deployment to Git
 
 I deployed my changes to Git:
 
@@ -364,67 +380,70 @@ The period (.) at the end will add all files to the commit.
 `$ git commit -m “{Commit Details}”` - Pushes the latest changes to the Git Repository.
 `-m` means "message" which is common practice to add so you and other developers know what changes were being made.
 
-
-### Deployment to Production
+## Deployment to Production
 
 Once I verified and tested by changes, I then deploy the changes to Production.
 
 `$ git push` deploys the code to the GitHub and into the main branch of code which is connected to Production (the Live Public URL).
 
-## Bugs Encountered during Testing
+[Back to top](<#contents>)
+------
 
-### Issue 1 - Not printing out the final order data into the terminal
+# Bugs Encountered during Testing
+
+## Issue 1 - Not printing out the final order data into the terminal
 
 I'm was trying to print out order data after multiple inputs from the users and passed validation.
 The code was not printing out the final order data into the terminal.
 
 ![image](/docs/images/issue-1.png)
 
-### Fix
+## Fix
 
 There was a 'break' statement that seemed to be out of place:
 
 ![image](/docs/images/fix-1.png)
 
-### Issue 2 - Keep getting a Syntax error
+## Issue 2 - Keep getting a Syntax error
 
 I was asking the user to confirm their order with a boolean (y/n)
 But I kept getting a Syntax error which I couldn't seem to fix.
 
 ![image](/docs/images/issue-2.png)
 
-### Fix
+## Fix
 
 Decided not to force it as a boolean, and created and if statement with conditions.
 Added this inside the while loop.
 
 ![image](/docs/images/issue-2-fix.png)
 
-### Issue 3 - Invalid data is still sent to the worksheet
+## Issue 3 - Invalid data is still sent to the worksheet
 
 When I run the py file with invalid data, the error is caught but the invalid data is still sent to the worksheet.
 
 ![image](/docs/images/issue-3.png)
 
-### Fix
+## Fix
 
 I had to `return` the get_order_data function on the false statement.
 
 ![image](/docs/images/issue-3-fix.png)
 
-
-## UX Planning
+[Back to top](<#contents>)
+------
+# UX Planning
 
 I used the 5 Planes of UX to provide a conceptual framework. 
 
-### The Strategy Plane
+## The Strategy Plane
 
-#### Mission Objectives / The What:
+### Mission Objectives / The What:
 
 - A simple command line interface, designed for the individual coffee branches/shops to place orders 
 - The orders are captured in an external worksheet which the supplier would use to use and fulfil the orders.
 
-#### The Why:
+### The Why:
 
 - The system focuses on the users placing orders for the most commonly used supplies so they never run out.
 
@@ -439,6 +458,7 @@ Here is a visual representation of the information flow through a process. DFDs 
 
 ![image](/docs/images/dataflow-diagram.png)
 
+[Back to top](<#contents>)
 ---
 
 ## The Scope Plane
@@ -493,6 +513,7 @@ Using the `MoSCoW prioritisation method` which is used in Agile project delivery
 #### MoSCoW Definition:
 ![image](/docs/images/moscow.png)
  
+ [Back to top](<#contents>)
 ---
 ## The Structure Plane
 
@@ -516,9 +537,10 @@ Not Applicable
 ### Wireframe
 ![image](/docs/images/wireframe.png)
 
+[Back to top](<#contents>)
 ------
 
-### Credits / Borrowed Resources / Tools
+# Credits / Borrowed Resources / Tools
 
 - Validate Name: 
 https://www.youtube.com/watch?v=E3aHAIVknh4
@@ -541,14 +563,18 @@ https://developers.google.com/search/docs/advanced/crawling/block-indexing
 https://www.codegrepper.com/code-examples/python/two+decimal+places+python
 - Agile User Stories Support Documentation
 https://www.atlassian.com/agile/project-management/user-stories 
+- Python Validation and Best Practices:
+http://pep8online.com/
+https://pythontutor.com/
 - Inspired by the Love Sandwiches Project. 
 - Wireframes produced using Balsamic
 - Support from my mentor Martina, Slack Community and Tutor Support.
 - Online Code Support and References: W3C Schools and Stackoverflow Community.
 
+[Back to top](<#contents>)
 ------
 
-### Descoped Requirements / Future Enhancements
+# Descoped Requirements / Future Enhancements
 - Some requirements had to be descoped from the project due to time contraints. 
 - Descoping is a process which is part or Agile Project Management, and can be requirements that are brought back into a sprint or project at a later date.
 
@@ -559,13 +585,15 @@ https://www.atlassian.com/agile/project-management/user-stories
 5. Add a favicon.
 6. Refactor the code using dictionaries for data structuring and ternery expressions to reduce the lines of code.
 
+[Back to top](<#contents>)
 ------
 
-### Unfixed Bug
+# Unfixed Bug
  Due to time constraints the following bugs are still unfixed. Following Agile practises, these bugs can go into a backlog of requirements and prioritised accordingly.
 
 - Fix the decimal place on total price when shown in Order Preview.
 
+[Back to top](<#contents>)
 ------
 
 <p align="center">End of document.</p>
