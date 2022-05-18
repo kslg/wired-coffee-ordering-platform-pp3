@@ -3,16 +3,8 @@
 # Contents
 
 * [**Introduction**](<## Introduction>)
-* [**User Experience UX**](<#user-experience-ux>)
-    * [Design Prototype](<#design-prototype>)
-    * [Site Structure](<#site-structure>)
-    * [Python Logic](<#python-logic>)
-    * [Data Model](<#data-model>)
-    * [Design Choices](<#design-choices>)
-    *  [Typography](<#typography>)
-    *  [Colour Scheme](<#colour-scheme>)
-    * [Project Management](<#project-management>)
-* [**Features**](<#features>)
+* [**Advanced SEO**](<## Advanced-SEO>)
+
 
 
 # Introduction
