@@ -101,7 +101,7 @@ After the user has entered the order details, the user can `preview the order` b
 
 ## 4. Calculate total price exVat on Order Preview
 
-The total price of the order is `calculated` using the price assigned to each sku number, multiplied by the quantity number the user inputs into the programme.
+The total price of the order is `calculated` using the price assigned to each sku number, multiplied by the quantity number the user inputs into the program.
 
 ![image](/)
 
@@ -281,13 +281,13 @@ Therefore, I made the app is only visible and can be run on a laptop or desktop 
 
 ### Input Order Data 
 `As a` Wired Coffee Employee
-`I want to` be able to enter order details into the programme
+`I want to` be able to enter order details into the program
 `So that` my order can be processed.
 
 ### Data Validation
 `As a` Wired Coffee Employee. 
-`I want to` be told by the programme that my order details are incorrect `and` stop the order from being processed, `if` I enter invalid data. 
-`So that` I am returned to the start of the programme.
+`I want to` be told by the program that my order details are incorrect `and` stop the order from being processed, `if` I enter invalid data. 
+`So that` I am returned to the start of the program.
 
 ### Preview Order Data
 `As a` Wired Coffee Employee.
@@ -323,26 +323,26 @@ The product menu shows in a table format is clearly legible `PASSED`
 ### Input Order Data
 The input fields allow me to enter data. `PASSED`
 
-## Data Validation
+### Data Validation
 1. The data validation for each input works as expected. `PASSED` 
 2. I cannot proceed with the order when invlaid data has been entered `PASSED`
 3. I am presented with a `user friendly error message` related to the invalid data.`PASSED`
 
-## Preview Order Data
+### Preview Order Data
 I can see my all my order details printed in the terminal for me to check and is clearly legible `PASSED`
 
-## Confirm Order
+### Confirm Order
 1. I am given the option to confirm my order with a simple ‘y’ for Yes and ‘n’ for No `PASSED`
 2. If I say ‘y’ my order is processed `PASSED`
 3. If I say ‘n’ my order is not processed `PASSED`
 4. When I say 'n', I am directed my to the beginning with user friendly messaging telling me my order was not placed and I can place a new order. `PASSED`
 
-## Send Order Data to Worksheet
+### Send Order Data to Worksheet
 1. The order data is sent to the google worksheet `PASSED`
 2. The order data is added to the correct columns in the worksheet `PASSED`
 3. The order data is in the correct format `PASSED`
 
-## Calculate Total price for the order
+### Calculate Total price for the order
 1. The total price is being calculated using the product price and the quantity number selected `PASSED`
 2. The total price is given two decimal places in the Order Preview `FAILED`. Possibly an edge case
 
@@ -354,68 +354,81 @@ I can see my all my order details printed in the terminal for me to check and is
 
 ### Responsive Layout
 
-I can view the game on the standard reponsive views. `PASSED`
+1. I can view the app on laptop and desktop. `PASSED`
+2. I cannot view the app on tablet and mobile `and` I am presented with a notice that my device is not supported.`PASSED`
 
+## Python Code Validation
 
-## HTML and CSS Code Validation
+I inspected the code using a <a href="http://pep8online.com/" target="_blank" rel="noopener">PEP8 Inpector</a> to confirm my python code is following best practices.
 
-Both the W3C Markup HTML Validator and W3C CSS Validator were used to to confirm there are no errors in the codebase.
-
-<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fkslg.github.io%2Fpp2-spider-quiz%2F" target="_blank">W3C Markup Validator Report</a>
-
-![image](/docs/images/html-validation.png)
-
-<a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fkslg.github.io%2Fpp2-spider-quiz%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank">W3C CSS Validator Report</a>
-
-![image](/docs/images/css-validation.png)
+![image](/docs/images/pep8-validation.png)
 
 ------
 
 ## Deployment
 
-I worked on my local repository before deploying the code to Staging and then Production (Live Site).
+### Running the code in the GitPod Terminal
 
-### Deployment to Staging
+I worked in the editor and checked my work via the gitpod terminal. I ran the run.py file using the following command `python3 run.py`
 
-I first deploy my changes to the `Staging Area` so I can preview the changes before deploying to Production.
+### Deployment to Git
 
-`$ git add .` - Adding this to the editor terminal commits files to the Staging area.
+I deployed my changes to Git:
+
+`$ git add .` - Adding this to the editor terminal commits files to the Git.
 The period (.) at the end will add all files to the commit.
 
-`$ git commit -m “{Commit Details}”` - Pushes the latest changes to the GIT Repository.
+`$ git commit -m “{Commit Details}”` - Pushes the latest changes to the Git Repository.
 `-m` means "message" which is common practice to add so you and other developers know what changes were being made.
 
 
 ### Deployment to Production
 
-Once I verified and tested by changes, I then deploy thr changes to Production.
+Once I verified and tested by changes, I then deploy the changes to Production.
 
 `$ git push` deploys the code to the GitHub and into the main branch of code which is connected to Production (the Live Public URL).
 
 ## Bugs Encountered during Testing
 
-### Issue 1 - Stop the window alert from displaying
+### Issue 1 - Not printing out the final order data into the terminal
 
-The window alert was still displaying even when you completed the quiz on time. 
+I'm was trying to print out order data after multiple inputs from the users and passed validation.
+The code was not printing out the final order data into the terminal.
 
-![image](/docs/images/window-alert-issue.png)
+![image](/docs/images/issue-1.png)
 
-## Fix
+### Fix
 
-I had to delete the window alert after the quiz was over by using the `delete keyword` for the window object.
+There was a 'break' statement that seemed to be out of place:
 
-![image](/docs/images/window-alert-fix.png)
+![image](/docs/images/fix-1.png)
 
-### Issue 2 - Modal code conflict
+### Issue 2 - Keep getting a Syntax error
 
-Added a Javascript/CSS Modal to the quiz but this broke the answers section as the colours on the answers did not clear after you select an answer. There was a conflict in the code. 
-I was using the modal from W3C https://www.w3schools.com/howto/howto_css_modals.asp
+I was asking the user to confirm their order with a boolean (y/n)
+But I kept getting a Syntax error which I couldn't seem to fix.
 
-![image](/docs/images/modal-issue.png)
+![image](/docs/images/issue-2.png)
 
-## Fix
+### Fix
 
-I found a simple Javascript CCS Modal workaround instead and styled it. 
+Decided not to force it as a boolean, and created and if statement with conditions.
+Added this inside the while loop.
+
+![image](/docs/images/issue-2-fix.png)
+
+### Issue 3 - Invalid data is still sent to the worksheet
+
+When I run the py file with invalid data, the error is caught but the invalid data is still sent to the worksheet.
+
+![image](/docs/images/issue-3.png)
+
+### Fix
+
+I had to `return` the get_order_data function on the false statement.
+
+![image](/docs/images/issue-3-fix.png)
+
 
 ## UX Planning
 
@@ -425,40 +438,23 @@ I used the 5 Planes of UX to provide a conceptual framework.
 
 #### Mission Objectives / The What:
 
- - Trivia Quiz game for Spider-man enthusiasts.
- - Fun and visually entertaining.
- - An unofficial quiz game.
+- A simple command line interface, designed for the individual coffee branches/shops to place orders 
+- The orders are captured in an external worksheet which the supplier would use to use and fulfil the orders.
 
- #### The Why:
+#### The Why:
 
-- To celebrate the comic book hero.
-- For fans to test their general knowledge about Spider-man.
-
-
-### Ideas & Inspiration Mind Map
-![image](/docs/images/mindmap-screenshot.png)
+- The system focuses on the users placing orders for the most commonly used supplies so they never run out.
 
 ### Demographic
 
- - Target Audience between: 9 years - 40 years
- - All genders Welcome.
+ - Designed for Businesses.
+ - Not for public use.
 
+### Data Flow Diagram (DFD)
 
-### Colour Palette Ideas
-- Primary colours for easy accessibility and clear communication.
-- Also, matches the theme of the quiz.
+Here is a visual representation of the information flow through a process. DFDs help us better understand the process or system operation to discover potential problems, improve efficiency, and develop better processes.
 
-![image](/docs/images/colour-pallette-ideas.png)
-
-### Content Strategy
-- Challening questions for the quiz
-- Instructions for the user
-- Clear and simple language for the users to understand and operate the quiz.
-
-### Typography
-Fonts selected are `Heebo` and `Bebas Neue` from Google Fonts which are clear and easy to read. https://fonts.google.com/
-
-![image](/docs/images/google-fonts-screenshot.png)
+![image](/docs/images/dataflow-diagram.png)
 
 ---
 
@@ -466,65 +462,61 @@ Fonts selected are `Heebo` and `Bebas Neue` from Google Fonts which are clear an
 
 ### Functional Requirements
 
-1. Problem: If the users want to play the quiz at night, they may strain their eyes playing this. 
+1. Problem: The supplier needs to know when the order was placed.
 
-    Solution: Implement night/dark mode for the quiz UI.
+    Solution: Add a `Date Stamp` as part of the order data which is then sent to the suppliers google worksheet.
 
-2. Problem: To move to the next question, the user needs to click next to display the next question.
+2. Problem: The supplier needs to know Coffee Branch Details for the order.
 
-    Solution: Make an event where the user clicks or taps on an answer which then moves on to
-the next question.
+    Solution: Add `Branch Number` and `Name` as part of the order data which is then sent to the suppliers google worksheet. The supplier will then know the location using their own systems, and who to address the the order to.
 
-3. Problem: Users need to be limited to a certain amount of time to play the quiz. This is one of the challenge aspects of the quiz
+3. Problem: The supplier needs to know product details got thr order.
 
-    Solution: Add a countdown timer for one minute. 
-    If the time runs out before the quiz ends then the user is prompted with a message “Oh no! Times Up. Don’t worry, you can try again.”
-    Users can restart the quiz.
-    If the user completes the quiz within one minute the timer stops and the user sees the scores page.
+    Solution: Add a `Product SKU`, `Product Name`, `Product Quantity` and 'Product Price' as part of the order data which is then sent to the suppliers google worksheet.
 
-4. Problem: If the player wants to start the quiz they would need to refresh the browser.
+4. Problem: The supplier needs to know how much to charge the Branch for the order.
 
-    Solution: Create a more intuitive refresh function by having a button to refresh the quiz.
+    Solution: Calculate the total cost programmatically based on product price and quantity requested.
 
-5. Problem: The player might not understand the aim of the game i.e how to play.
+5. Problem: The Branch User must not give order data which is incorrect or not making any sense.
 
-    Solution: Create a popup with instructions on how to play.
+    Solution: Add validation rules to the data inputs which check the order data programmatically.
 
-6. Problem: The player has no method to share the game with friends.
+6. Problem: The Branch user has to check the order details before sending them off to the supplier.
 
-    Solution: Add a share functionality so users can share the game with friends and family.
+    Solution: Add an Order Preview Section so the user can check before submitting the order.
+
+7. Problem: The Branch User needs to know what products they can purchase and how.
+
+    Solution: Present a Product List displaying Product Details and give instructions on how to place orders.
 
 ### Content Requirements
 
-- Quiz questions and answers which can be easily updated via js file. 
-- Content on the site will be a mix of copy text and a background image.
+- Input strings, telling the users what data is required.
+- Error messages, letting the user know when certain data is invalid.
+- Status information, informing the user what is happening at each stage of the ordering process.
+- Content on the site must be easy to read. Simple langauge with User Friendly messaging and tones.
 
 ### Interaction Design
 
-- All CTA (Call to Action) buttons will change colour to let the customers know that the buttons and links are clickable. 
+- Using Heroku App ther will be a CTA (Call to Action) to help the user run the program.
 
-- Once all five questions have been answered the player is directed to the score area.
-
-- Once the timer has run out the player is notified. 
-
-- The player is presented with an alert when the time has run out. Player has to click on the alert to close it.
-
-- The player cna find out how to play the game by opening up a modal popup giving instructions on how to play the game.
+- Interaction is simple and mainly terminal based.
 
 ### Scope of MVP
 
-Using the `MoSCoW prioritisation method` which is used in Agile project delivery to outline the importance of each requirement and what needs to be delivered in the MVP.
+Using the `MoSCoW prioritisation method` which is used in Agile project delivery. This outlines the importance of each requirement and what needs to be delivered in the MVP (Minimum Viable Product).
 
 #### MoSCoW Definition:
-![image](/docs/images/moscow-screenshot.png)
+![image](/docs/images/moscow.png)
  
 ---
 ## The Structure Plane
 
 ### Site Architecture
-- Only one page is presented to the user with a dynamic elements being the question area, and the scoreboard area.
+- Only one page is presented to the user with a CTA Button, and the Terminal Interface.
 
-![image](/docs/images/site-structure-screenshot.png)
+![image](/docs/images/wireframe.png)
 
 ### Header and Footer
 - Normal Mode: Light Blue Background and Yellow Gold Text. 
