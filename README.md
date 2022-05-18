@@ -73,7 +73,7 @@ When the program runs the user is greeted with a `Welcome Message` and Instructi
 There is also a `Product Menu` so the user knows what products are available to order.
 
 
-![image]()
+![image](/docs/images/welcome-and-menu.png)
 
 ## 2. User Input Validation
 
@@ -89,28 +89,19 @@ There are safeguards functions to protect the integrity of the order data. This 
 
 * If the user does not want to proceed with the order, then the user is redirected back to the beginning of the program Otherwise the order is processed.
 
-
-
-![image](/)
-
 ## 3. Order Preview
 
 After the user has entered the order details, the user can `preview the order` before submitting the order.
 
-![image](/)
+![image](/docs/images/order-preview.png)
 
 ## 4. Calculate total price exVat on Order Preview
 
 The total price of the order is `calculated` using the price assigned to each sku number, multiplied by the quantity number the user inputs into the program.
 
-![image](/)
-
 ## 5. Confirm Order
 
 The user has the option to proceed with the order or terminate the order. This is a `safe guard function` to avoid the order being placed without user consent.
-
-
-![image](/)
 
 ## 6. API Integration - Send Order Data to External Google Worksheet
 
